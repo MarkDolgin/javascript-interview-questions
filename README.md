@@ -474,35 +474,35 @@
 | 449 | [What is Function Composition?](#what-is-function-composition)                                                                                                |
 | 450 | [How to use await outside of async function prior to ES2022?](#how-to-use-await-outside-of-async-function-prior-to-es2022)                                    |
 
-1. ### What are the possible ways to create objects in JavaScript
+1. ### Каковы возможные способы создания объектов в JavaScript
 
    There are many ways to create objects in javascript as below
 
    1. **Object constructor:**
 
-      The simplest way to create an empty object is using the Object constructor. Currently this approach is not recommended.
+       Существует множество способов создания объектов в javascript, как показано ниже
 
       ```javascript
       var object = new Object();
       ```
 
-      The `Object()` is a built-in constructor function so "new" keyword is not required. the above can be written as:
+      Функция `Object()` является встроенным конструктором, поэтому ключевое слово "new" не требуется:
 
       ```javascript
       var object = Object();
       ```
 
-   2. **Object's create method:**
+   2. **Метод создания объекта:**
 
-      The create method of Object creates a new object by passing the prototype object as a parameter
+      Метод create объекта Object создает новый объект, передавая в качестве параметра объект-прототип
 
       ```javascript
       var object = Object.create(null);
       ```
 
-   3. **Object literal syntax:**
+   3. **Синтаксис объектного литерала:**
 
-      The object literal syntax (or object initializer), is a comma-separated set of name-value pairs wrapped in curly braces.
+      Синтаксис объектного литерала (или инициализатора объекта) представляет собой набор пар имя-значение, разделенных запятыми и заключенных в фигурные скобки.
 
       ```javascript
       var object = {
@@ -510,14 +510,14 @@
            age: 34
       };
 
-      Object literal property values can be of any data type, including array, function, and nested object.
+      Значения свойств объектного литерала могут иметь любой тип данных, включая массив, функцию и вложенный объект.
       ```
 
-      **Note:** This is an easiest way to create an object
+      **Note:** Это самый простой способ создания объекта
 
    4. **Function constructor:**
 
-      Create any function and apply the new operator to create object instances,
+      Создайте любую функцию и примените оператор new для создания экземпляров объектов,
 
       ```javascript
       function Person(name) {
@@ -529,7 +529,7 @@
 
    5. **Function constructor with prototype:**
 
-      This is similar to function constructor but it uses prototype for their properties and methods,
+      Он похож на конструктор функций, но использует прототип для их свойств и методов,
 
       ```javascript
       function Person() {}
@@ -537,7 +537,7 @@
       var object = new Person();
       ```
 
-      This is equivalent to an instance created with an object create method with a function prototype and then call that function with an instance and parameters as arguments.
+      Это эквивалентно созданию экземпляра с помощью метода object create с прототипом функции и последующему вызову этой функции с экземпляром и параметрами в качестве аргументов.
 
       ```javascript
       function func() {}
@@ -548,19 +548,19 @@
       **(OR)**
 
       ```javascript
-      // Create a new instance using function prototype.
+      // Создайте новый экземпляр, используя прототип функции.
       var newInstance = Object.create(func.prototype)
 
       // Call the function
       var result = func.call(newInstance, x, y, z),
 
-      // If the result is a non-null object then use it otherwise just use the new instance.
+      // Если результатом является ненулевой объект, то используйте его, иначе просто используйте новый экземпляр.
       console.log(result && typeof result === 'object' ? result : newInstance);
       ```
 
    6. **ES6 Class syntax:**
 
-      ES6 introduces class feature to create the objects
+      В ES6 введена функция классов для создания объектов
 
       ```javascript
       class Person {
@@ -572,9 +572,9 @@
       var object = new Person("Sudheer");
       ```
 
-   7. **Singleton pattern:**
+   7. **Модель синглтона:**
 
-      A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance and this way one can ensure that they don't accidentally create multiple instances.
+      Синглтон - это объект, который может быть инстанцирован только один раз. Повторные вызовы его конструктора возвращают один и тот же экземпляр, и таким образом можно исключить случайное создание нескольких экземпляров.
 
       ```javascript
       var object = new (function () {
@@ -584,21 +584,21 @@
 
       **[⬆ Back to Top](#table-of-contents)**
 
-2. ### What is a prototype chain
+2. ### Что такое цепочка прототипов
 
-   **Prototype chaining** is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language.
+   **Цепочка прототипов** используется для создания новых типов объектов на основе существующих. Это аналогично наследованию в языке, основанном на классах.
 
-   The prototype on object instance is available through **Object.getPrototypeOf(object)** or **\_\_proto\_\_** property whereas prototype on constructors function is available through **Object.prototype**.
+   Прототип для экземпляра объекта доступен через свойство **Object.getPrototypeOf(object)** или **\_\_proto\_\_**, а прототип для функции конструктора - через **Object.prototype**.
 
    ![Screenshot](images/prototype_chain.png)
 
    **[⬆ Back to Top](#table-of-contents)**
 
-3. ### What is the difference between Call, Apply and Bind
+3. ### В чем разница между понятиями Call, Apply и Bind
 
-   The difference between Call, Apply and Bind can be explained with below examples,
+   Разницу между Call, Apply и Bind можно пояснить на следующих примерах,
 
-   **Call:** The call() method invokes a function with a given `this` value and arguments provided one by one
+   **Вызов:** Метод call() вызывает функцию с заданным значением `this` и аргументами, предоставляемыми поочередно
 
    ```javascript
    var employee1 = { firstName: "John", lastName: "Rodson" };
@@ -614,7 +614,7 @@
    invite.call(employee2, "Hello", "How are you?"); // Hello Jimmy Baily, How are you?
    ```
 
-   **Apply:** Invokes the function with a given `this` value and allows you to pass in arguments as an array
+   **Apply:** Вызывает функцию с заданным значением `this` и позволяет передавать аргументы в виде массива
 
    ```javascript
    var employee1 = { firstName: "John", lastName: "Rodson" };
@@ -630,7 +630,7 @@
    invite.apply(employee2, ["Hello", "How are you?"]); // Hello Jimmy Baily, How are you?
    ```
 
-   **bind:** returns a new function, allowing you to pass any number of arguments
+   **bind:** возвращает новую функцию, позволяющую передавать любое количество аргументов
 
    ```javascript
    var employee1 = { firstName: "John", lastName: "Rodson" };
@@ -648,23 +648,23 @@
    inviteEmployee2("Hello", "How are you?"); // Hello Jimmy Baily, How are you?
    ```
 
-   Call and apply are pretty interchangeable. Both execute the current function immediately. You need to decide whether it’s easier to send in an array or a comma separated list of arguments. You can remember by treating Call is for **comma** (separated list) and Apply is for **Array**.
+   Call и apply вполне взаимозаменяемы. Оба они выполняют текущую функцию немедленно. Вам нужно решить, что удобнее - массив или список аргументов, разделенных запятыми. Можно запомнить, что Call - это **comma** (разделенный запятыми список), а Apply - **Array**.
 
-   Whereas Bind creates a new function that will have `this` set to the first parameter passed to bind().
+   В то время как Bind создает новую функцию, у которой `this` будет равен первому параметру, переданному в bind().
 
    **[⬆ Back to Top](#table-of-contents)**
 
-4. ### What is JSON and its common operations
+4. ### Что такое JSON и его общие операции
 
-   **JSON** is a text-based data format following JavaScript object syntax, which was popularized by `Douglas Crockford`. It is useful when you want to transmit data across a network and it is basically just a text file with an extension of .json, and a MIME type of application/json
+   **JSON** - это текстовый формат данных, основанный на синтаксисе объектов JavaScript, который был популяризирован Дугласом Крокфордом. Он полезен при передаче данных по сети и представляет собой текстовый файл с расширением .json и MIME-типом application/json.
 
-   **Parsing:** Converting a string to a native object
+   **Парсинг:** Преобразование строки в собственный объект
 
    ```javascript
    JSON.parse(text);
    ```
 
-   **Stringification:** converting a native object to a string so it can be transmitted across the network
+   **Стрингизация:** преобразование нативного объекта в строку для передачи ее по сети
 
    ```javascript
    JSON.stringify(object);
@@ -672,83 +672,83 @@
 
    **[⬆ Back to Top](#table-of-contents)**
 
-5. ### What is the purpose of the array slice method
+5. ### Каково назначение метода slice массива
 
-   The **slice()** method returns the selected elements in an array as a new array object. It selects the elements starting at the given start argument, and ends at the given optional end argument without including the last element. If you omit the second argument then it selects till the end.
+   Метод **slice()** возвращает выбранные элементы массива в виде нового объекта массива. Он выбирает элементы, начиная с заданного аргумента start и заканчивая заданным необязательным аргументом end, не включая последний элемент. Если опустить второй аргумент, то выборка будет производиться до конца.
 
-   Some of the examples of this method are,
+   Примеры использования этого метода,
 
-   ```javascript
+   ``javascript
    let arrayIntegers = [1, 2, 3, 4, 5];
-   let arrayIntegers1 = arrayIntegers.slice(0, 2); // returns [1,2]
-   let arrayIntegers2 = arrayIntegers.slice(2, 3); // returns [3]
-   let arrayIntegers3 = arrayIntegers.slice(4); //returns [5]
+   let arrayIntegers1 = arrayIntegers.slice(0, 2); // возвращает [1,2]
+   let arrayIntegers2 = arrayIntegers.slice(2, 3); // возвращает [3]
+   let arrayIntegers3 = arrayIntegers.slice(4); // возвращает [5]
    ```
 
-   **Note:** Slice method won't mutate the original array but it returns the subset as a new array.
+   **Примечание:** Метод Slice не мутирует исходный массив, а возвращает подмножество в виде нового массива.
 
-   **[⬆ Back to Top](#table-of-contents)**
+   **[⬆ Вернуться к началу](#table-of-contents)**.
 
-6. ### What is the purpose of the array splice method
+6. ### Каково назначение метода сращивания массивов
 
-   The **splice()** method is used either adds/removes items to/from an array, and then returns the removed item. The first argument specifies the array position for insertion or deletion whereas the optional second argument indicates the number of elements to be deleted. Each additional argument is added to the array.
+   Метод **splice()** используется для добавления/удаления элементов в/из массива и возврата удаленного элемента. Первый аргумент задает позицию массива для вставки или удаления, а необязательный второй аргумент указывает количество удаляемых элементов. Каждый дополнительный аргумент добавляется к массиву.
 
-   Some of the examples of this method are,
+   Примерами использования этого метода являются,
 
-   ```javascript
+   ``javascript
    let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];
    let arrayIntegersOriginal2 = [1, 2, 3, 4, 5];
    let arrayIntegersOriginal3 = [1, 2, 3, 4, 5];
 
-   let arrayIntegers1 = arrayIntegersOriginal1.splice(0, 2); // returns [1, 2]; original array: [3, 4, 5]
-   let arrayIntegers2 = arrayIntegersOriginal2.splice(3); // returns [4, 5]; original array: [1, 2, 3]
-   let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, "a", "b", "c"); //returns [4]; original array: [1, 2, 3, "a", "b", "c", 5]
+   let arrayIntegers1 = arrayIntegersOriginal1.splice(0, 2); // возвращает [1, 2]; исходный массив: [3, 4, 5]
+   let arrayIntegers2 = arrayIntegersOriginal2.splice(3); // возвращает [4, 5]; исходный массив: [1, 2, 3]
+   let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, "a", "b", "c"); //возвращает [4]; исходный массив: [1, 2, 3, "a", "b", "c", 5]
    ```
 
-   **Note:** Splice method modifies the original array and returns the deleted array.
+   **Примечание:** Метод Splice модифицирует исходный массив и возвращает удаленный массив.
 
-   **[⬆ Back to Top](#table-of-contents)**
+   **[⬆ Вернуться к началу](#table-of-contents)**.
 
-7. ### What is the difference between slice and splice
+7. ### В чем разница между slice и splice
 
-   Some of the major difference in a tabular form
+   Некоторые из основных отличий в табличной форме
 
    | Slice                                        | Splice                                          |
    | -------------------------------------------- | ----------------------------------------------- |
-   | Doesn't modify the original array(immutable) | Modifies the original array(mutable)            |
-   | Returns the subset of original array         | Returns the deleted elements as array           |
-   | Used to pick the elements from array         | Used to insert or delete elements to/from array |
+   | Не модифицирует исходный массив (неизменяемый) | Модифицирует исходный массив (изменяемый) |
+   | Возвращает подмножество исходного массива | Возвращает удаленные элементы в виде массива |
+   | Используется для выбора элементов из массива | Используется для вставки или удаления элементов в/из массива |
 
    **[⬆ Back to Top](#table-of-contents)**
 
-8. ### How do you compare Object and Map
+8. ### Как сравнить Object и Map
 
-   **Objects** are similar to **Maps** in that both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. Due to this reason, Objects have been used as Maps historically. But there are important differences that make using a Map preferable in certain cases.
+   **Объекты** похожи на Карты** тем, что позволяют задавать ключам значения, извлекать эти значения, удалять ключи и определять, хранится ли что-то по ключу. По этой причине объекты исторически использовались как карты. Однако есть важные отличия, которые делают использование карты предпочтительным в некоторых случаях.
 
-   1. The keys of an Object are Strings and Symbols, whereas they can be any value for a Map, including functions, objects, and any primitive.
-   2. The keys in Map are ordered while keys added to Object are not. Thus, when iterating over it, a Map object returns keys in order of insertion.
-   3. You can get the size of a Map easily with the size property, while the number of properties in an Object must be determined manually.
-   4. A Map is an iterable and can thus be directly iterated, whereas iterating over an Object requires obtaining its keys in some fashion and iterating over them.
-   5. An Object has a prototype, so there are default keys in the map that could collide with your keys if you're not careful. As of ES5 this can be bypassed by using map = Object.create(null), but this is seldom done.
-   6. A Map may perform better in scenarios involving frequent addition and removal of key pairs.
+   1. Ключами объекта являются строки и символы, в то время как ключом карты может быть любое значение, включая функции, объекты и любые примитивы.
+   2. Ключи в Map упорядочены, а ключи, добавляемые в Object, - нет. Таким образом, при итерации по объекту Map ключи возвращаются в порядке их вставки.
+   3. Размер Map можно легко узнать с помощью свойства size, в то время как количество свойств в Object необходимо определять вручную.
+   4. Map является итерируемым объектом и поэтому может быть непосредственно итерирован, в то время как итерирование объекта Object требует получения его ключей каким-либо способом и их итерирования.
+   5. Объект имеет прототип, поэтому в карте есть ключи по умолчанию, которые могут столкнуться с вашими ключами, если вы не будете осторожны. В ES5 это можно обойти, используя map = Object.create(null), но это делается редко.
+   6. В сценариях с частым добавлением и удалением пар ключей лучше работает карта.
 
    **[⬆ Back to Top](#table-of-contents)**
 
-9. ### What is the difference between == and === operators
+9. ### В чем разница между операторами == и ===
 
-   JavaScript provides both strict(===, !==) and type-converting(==, !=) equality comparison. The strict operators take type of variable in consideration, while non-strict operators make type correction/conversion based upon values of variables. The strict operators follow the below conditions for different types,
+   В JavaScript предусмотрено как строгое(===, !==), так и преобразующее тип(==, !=) сравнение равенств. Строгие операторы учитывают тип переменной, в то время как нестрогие операторы выполняют коррекцию/преобразование типа на основе значений переменных. Строгие операторы выполняют следующие условия для различных типов,
 
-   1. Two strings are strictly equal when they have the same sequence of characters, same length, and same characters in corresponding positions.
-   2. Two numbers are strictly equal when they are numerically equal. i.e, Having the same number value.
-      There are two special cases in this,
-      1. NaN is not equal to anything, including NaN.
-      2. Positive and negative zeros are equal to one another.
-   3. Two Boolean operands are strictly equal if both are true or both are false.
-   4. Two objects are strictly equal if they refer to the same Object.
-   5. Null and Undefined types are not equal with ===, but equal with ==. i.e,
-      null===undefined --> false but null==undefined --> true
+   1. Две строки строго равны, если они имеют одинаковую последовательность символов, одинаковую длину и одинаковые символы в соответствующих позициях.
+   2. Два числа строго равны, если они численно равны, т.е. имеют одинаковое числовое значение.
+      При этом возможны два частных случая,
+      1. NaN не равно ничему, в том числе и NaN.
+      2. Положительные и отрицательные нули равны друг другу.
+   3. Два булевых операнда строго равны, если оба истинны или оба ложны.
+   4. Два объекта строго равны, если они ссылаются на один и тот же объект.
+   5. Типы Null и Undefined не равны ===, но равны ==. т.е,
+      null===undefined --> false, но null==undefined --> true
 
-   Some of the example which covers the above cases,
+   Некоторые из примеров, которые охватывают перечисленные случаи,
 
    ```javascript
    0 == false   // true
@@ -765,17 +765,17 @@
 
    **[⬆ Back to Top](#table-of-contents)**
 
-10. ### What are lambda or arrow functions
+10. ### Что такое лямбда- или стрелочные функции
 
-    An arrow function is a shorter syntax for a function expression and does not have its own **this, arguments, super, or new.target**. These functions are best suited for non-method functions, and they cannot be used as constructors.
+    Стрелочная функция - это более короткий синтаксис для выражения функции, не имеющий собственных **this, arguments, super или new.target**. Эти функции лучше всего подходят для функций, не относящихся к методам, и не могут использоваться в качестве конструкторов.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-11. ### What is a first class function
+11. ### Что такое функция первого класса
 
-    In Javascript, functions are first class objects. First-class functions means when functions in that language are treated like any other variable.
+    В языке Javascript функции являются объектами первого класса. Первый класс функций означает, что в данном языке функции рассматриваются как любые другие переменные.
 
-    For example, in such a language, a function can be passed as an argument to other functions, can be returned by another function and can be assigned as a value to a variable. For example, in the below example, handler functions assigned to a listener
+    Например, в таком языке функция может быть передана в качестве аргумента другим функциям, может быть возвращена другой функцией и может быть присвоена в качестве значения переменной. Например, в приведенном ниже примере функции-обработчики, назначенные слушателю
 
     ```javascript
     const handler = () => console.log("This is a click handler function");
@@ -784,9 +784,9 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-12. ### What is a first order function
+12. ### Что такое функция первого порядка
 
-    First-order function is a function that doesn’t accept another function as an argument and doesn’t return a function as its return value.
+    Функция первого порядка - это функция, которая не принимает в качестве аргумента другую функцию и не возвращает функцию в качестве возвращаемого значения.
 
     ```javascript
     const firstOrder = () => console.log("I am a first order function!");
@@ -794,9 +794,9 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-13. ### What is a higher order function
+13. ### Что такое функция высшего порядка
 
-    Higher-order function is a function that accepts another function as an argument or returns a function as a return value or both.
+    Функция высшего порядка - это функция, которая принимает в качестве аргумента другую функцию или возвращает в качестве возвращаемого значения функцию, или и то, и другое.
 
     ```javascript
     const firstOrderFunc = () =>
@@ -807,11 +807,11 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-14. ### What is a unary function
+14. ### Что такое унарная функция
 
-    Unary function (i.e. monadic) is a function that accepts exactly one argument. It stands for a single argument accepted by a function.
+    Унарная функция (т.е. монадическая) - это функция, принимающая ровно один аргумент. Она обозначает единственный аргумент, принимаемый функцией.
 
-    Let us take an example of unary function,
+    Рассмотрим пример унарной функции,
 
     ```javascript
     const unaryFunction = (a) => console.log(a + 10); // Add 10 to the given argument and display the value
@@ -819,11 +819,11 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-15. ### What is the currying function
+15. ### Что такое функция currying
 
-    Currying is the process of taking a function with multiple arguments and turning it into a sequence of functions each with only a single argument. Currying is named after a mathematician **Haskell Curry**. By applying currying, a n-ary function turns it into a unary function.
+    Функция Currying - это процесс преобразования функции с несколькими аргументами в последовательность функций, каждая из которых имеет только один аргумент. Каррирование названо в честь математика **Хаскелла Карри**. Применяя каррирование, n-ая функция превращается в унарную.
 
-    Let's take an example of n-ary function and how it turns into a currying function,
+    Рассмотрим на примере n-арной функции, как она превращается в функцию каррирования,
 
     ```javascript
     const multiArgFunction = (a, b, c) => a + b + c;
@@ -835,15 +835,15 @@
     curryUnaryFunction(1)(2)(3); // returns the number 6
     ```
 
-    Curried functions are great to improve **code reusability** and **functional composition**.
+    Свернутые функции отлично подходят для улучшения **повторного использования кода** и **функциональной композиции**.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-16. ### What is a pure function
+16. ### Что такое чистая функция
 
-    A **Pure function** is a function where the return value is only determined by its arguments without any side effects. i.e, If you call a function with the same arguments 'n' number of times and 'n' number of places in the application then it will always return the same value.
+    Чистая функция** - это функция, в которой возвращаемое значение определяется только ее аргументами без каких-либо побочных эффектов, т.е. если вызвать функцию с одними и теми же аргументами "n" раз и в "n" количестве мест в приложении, то она всегда будет возвращать одно и то же значение.
 
-    Let's take an example to see the difference between pure and impure functions,
+    Рассмотрим на примере разницу между чистыми и нечистыми функциями,
 
     ```javascript
     //Impure
@@ -860,17 +860,17 @@
     console.log(numberArray); // returns [6]
     ```
 
-    As per the above code snippets, the **Push** function is impure itself by altering the array and returning a push number index independent of the parameter value. . Whereas **Concat** on the other hand takes the array and concatenates it with the other array producing a whole new array without side effects. Also, the return value is a concatenation of the previous array.
+    Согласно приведенным фрагментам кода, функция **Push** нечиста сама по себе, изменяя массив и возвращая индекс числа push, не зависящий от значения параметра. . В то время как функция **Concat**, напротив, берет массив и конкатенирует его с другим массивом, создавая совершенно новый массив без побочных эффектов. Кроме того, возвращаемое значение представляет собой конкатенацию предыдущего массива.
 
-    Remember that Pure functions are important as they simplify unit testing without any side effects and no need for dependency injection. They also avoid tight coupling and make it harder to break your application by not having any side effects. These principles are coming together with **Immutability** concept of ES6 by giving preference to **const** over **let** usage.
+    Помните, что чистые функции очень важны, поскольку они упрощают модульное тестирование без побочных эффектов и не требуют инъекции зависимостей. Кроме того, они позволяют избежать тесной связи и усложняют процесс разрушения приложения благодаря отсутствию побочных эффектов. Эти принципы объединяются с концепцией **Immutability** в ES6, отдавая предпочтение использованию **const** перед **let**.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-17. ### What is the purpose of the let keyword
+17. ### Каково назначение ключевого слова let
 
-    The `let` statement declares a **block scope local variable**. Hence the variables defined with let keyword are limited in scope to the block, statement, or expression on which it is used. Whereas variables declared with the `var` keyword used to define a variable globally, or locally to an entire function regardless of block scope.
+    Оператор `let` объявляет локальную переменную **в области видимости блока**. Следовательно, переменные, определенные с помощью ключевого слова let, ограничены областью видимости блока, оператора или выражения, в котором они используются. В то время как переменные, объявленные с помощью ключевого слова `var`, используются для определения переменной глобально или локально для всей функции независимо от области видимости блока.
 
-    Let's take an example to demonstrate the usage,
+    Для демонстрации использования рассмотрим пример,
 
     ```javascript
     let counter = 30;
@@ -883,17 +883,17 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-18. ### What is the difference between let and var
+18. ### В чем разница между let и var
 
-    You can list out the differences in a tabular format
+    Различия можно представить в табличной форме
 
     | var                                                   | let                         |
     | ----------------------------------------------------- | --------------------------- |
-    | It is been available from the beginning of JavaScript | Introduced as part of ES6   |
-    | It has function scope                                 | It has block scope          |
-    | Variables will be hoisted                             | Hoisted but not initialized |
+    | Он доступен с самого начала развития JavaScript       | Введен в ES6 |
+    | Имеет область видимости функции                       | Имеет область видимости блока |
+    | Переменные будут подняты                              | Подняты, но не инициализированы |
 
-    Let's take an example to see the difference,
+    Для того чтобы увидеть разницу, рассмотрим пример,
 
     ```javascript
     function userDetails(username) {
@@ -911,15 +911,15 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-19. ### What is the reason to choose the name let as a keyword
+19. ### Чем обусловлен выбор имени let в качестве ключевого слова
 
-    `let` is a mathematical statement that was adopted by early programming languages like **Scheme** and **Basic**. It has been borrowed from dozens of other languages that use `let` already as a traditional keyword as close to `var` as possible.
+    `let` - это математическое выражение, которое было принято в ранних языках программирования, таких как **Scheme** и **Basic**. Оно было заимствовано из десятков других языков, которые используют `let` уже как традиционное ключевое слово, максимально приближенное к `var`.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-20. ### How do you redeclare variables in switch block without an error
+20. ### Как переобъявить переменные в блоке switch без ошибки
 
-    If you try to redeclare variables in a `switch block` then it will cause errors because there is only one block. For example, the below code block throws a syntax error as below,
+    Если попытаться переобъявить переменные в блоке `switch block`, то это приведет к ошибкам, поскольку блок только один. Например, в приведенном ниже блоке кода возникает синтаксическая ошибка, как показано ниже,
 
     ```javascript
     let counter = 1;
@@ -934,7 +934,7 @@
     }
     ```
 
-    To avoid this error, you can create a nested block inside a case clause and create a new block scoped lexical environment.
+    Чтобы избежать этой ошибки, можно создать вложенный блок внутри клаузы case и создать новое лексическое окружение, скопированное на блок.
 
     ```javascript
     let counter = 1;
@@ -944,7 +944,7 @@
         break;
       }
       case 1: {
-        let name; // No SyntaxError for redeclaration.
+        let name; // Синтаксическая ошибка при повторном декларировании отсутствует.
         break;
       }
     }
@@ -952,11 +952,11 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-21. ### What is the Temporal Dead Zone
+21. ### Что такое временная мертвая зона
 
-    The Temporal Dead Zone is a behavior in JavaScript that occurs when declaring a variable with the let and const keywords, but not with var. In ECMAScript 6, accessing a `let` or `const` variable before its declaration (within its scope) causes a ReferenceError. The time span when that happens, between the creation of a variable’s binding and its declaration, is called the temporal dead zone.
+    Временная мертвая зона - это поведение в JavaScript, возникающее при объявлении переменной с помощью ключевых слов let и const, но не var. В ECMAScript 6 обращение к переменной `let` или `const` до ее объявления (в пределах ее области видимости) вызывает ошибку ReferenceError. Промежуток времени, когда это происходит, между созданием привязки переменной и ее объявлением, называется временной мертвой зоной.
 
-    Let's see this behavior with an example,
+    Рассмотрим это поведение на примере,
 
     ```javascript
     function somemethod() {
@@ -969,9 +969,9 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-22. ### What is IIFE(Immediately Invoked Function Expression)
+22. ### Что такое IIFE (Immediately Invoked Function Expression)
 
-    IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. The signature of it would be as below,
+    IIFE (Immediately Invoked Function Expression) - это функция JavaScript, которая запускается сразу же после ее определения. Ее сигнатура выглядит следующим образом,
 
     ```javascript
     (function () {
@@ -979,7 +979,7 @@
     })();
     ```
 
-    The primary reason to use an IIFE is to obtain data privacy because any variables declared within the IIFE cannot be accessed by the outside world. i.e, If you try to access variables with IIFE then it throws an error as below,
+    Основной причиной использования IIFE является обеспечение конфиденциальности данных, поскольку любые переменные, объявленные внутри IIFE, не могут быть доступны внешнему миру. т.е. если попытаться получить доступ к переменным с помощью IIFE, то будет выдана ошибка, как показано ниже,
 
     ```javascript
     (function () {
@@ -991,12 +991,12 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-23. ### How do you decode or encode a URL in JavaScript?
+23. ### Как декодировать или кодировать URL в JavaScript?
 
-    `encodeURI()` function is used to encode an URL. This function requires a URL string as a parameter and return that encoded string.
-    `decodeURI()` function is used to decode an URL. This function requires an encoded URL string as parameter and return that decoded string.
+    Для кодирования URL используется функция `encodeURI()`. Эта функция требует в качестве параметра строку URL и возвращает закодированную строку.
+    Функция `decodeURI()` используется для декодирования URL. Эта функция требует в качестве параметра закодированную строку URL и возвращает эту декодированную строку.
 
-    **Note:** If you want to encode characters such as `/ ? : @ & = + $ #` then you need to use `encodeURIComponent()`.
+    **Примечание:** Если необходимо закодировать такие символы, как `/ ? @ & = + $ #`, то необходимо использовать функцию `encodeURIComponent()`.
 
     ```javascript
     let uri = "employeeDetails?name=john&occupation=manager";
@@ -1006,10 +1006,10 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-24. ### What is memoization
+24. ### Что такое мемоизация
 
-    Memoization is a programming technique which attempts to increase a function’s performance by caching its previously computed results. Each time a memoized function is called, its parameters are used to index the cache. If the data is present, then it can be returned, without executing the entire function. Otherwise the function is executed and then the result is added to the cache.
-    Let's take an example of adding function with memoization,
+    Мемоизация - это прием программирования, позволяющий увеличить производительность функции за счет кэширования результатов ее предыдущих вычислений. При каждом вызове мемоизированной функции ее параметры используются для индексации кэша. Если данные присутствуют, то они могут быть возвращены без выполнения всей функции. В противном случае функция выполняется, а затем результат добавляется в кэш.
+    Рассмотрим пример добавления функции с мемоизацией,
 
     ```javascript
     const memoizAddition = () => {
@@ -1017,7 +1017,7 @@
       return (value) => {
         if (value in cache) {
           console.log("Fetching from cache");
-          return cache[value]; // Here, cache.value cannot be used as property name starts with the number which is not a valid JavaScript  identifier. Hence, can only be accessed using the square bracket notation.
+          return cache[value]; // Здесь cache.value не может быть использовано, так как имя свойства начинается с цифры, которая не является допустимым JavaScript-идентификатором. Следовательно, доступ к нему можно получить только через квадратные скобки.
         } else {
           console.log("Calculating result");
           let result = value + 20;
@@ -1034,17 +1034,17 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-25. ### What is Hoisting
+25. ### Что такое Hoisting
 
-    Hoisting is a JavaScript mechanism where variables, function declarations and classes are moved to the top of their scope before code execution. Remember that JavaScript only hoists declarations, not initialisation.
-    Let's take a simple example of variable hoisting,
+    Hoisting - это механизм JavaScript, с помощью которого переменные, объявления функций и классов перемещаются в верхнюю часть области видимости перед выполнением кода. Помните, что в JavaScript поднимаются только объявления, но не инициализация.
+    Рассмотрим простой пример поднятия переменных,
 
     ```javascript
     console.log(message); //output : undefined
-    var message = "The variable Has been hoisted";
+    var message = "Переменная была поднята";
     ```
 
-    The above code looks like as below to the interpreter,
+    Приведенный выше код выглядит для интерпретатора следующим образом,
 
     ```javascript
     var message;
@@ -1052,7 +1052,7 @@
     message = "The variable Has been hoisted";
     ```
 
-    In the same fashion, function declarations are hoisted too
+    Аналогичным образом поднимаются и объявления функций
 
     ```javascript
     message("Good morning"); //Good morning
@@ -1062,14 +1062,14 @@
     }
     ```
 
-    This hoisting makes functions to be safely used in code before they are declared.
+    Такой подъем позволяет безопасно использовать функции в коде еще до их объявления.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-26. ### What are classes in ES6
+26. ### Что такое классы в ES6
 
-    In ES6, Javascript classes are primarily syntactic sugar over JavaScript’s existing prototype-based inheritance.
-    For example, the prototype based inheritance written in function expression as below,
+    В ES6 классы в Javascript - это, прежде всего, синтаксический сахар для наследования по прототипу, существующего в JavaScript.
+    Например, наследование по прототипу, записанное в функциональном выражении, выглядит следующим образом,
 
     ```javascript
     function Bike(model, color) {
@@ -1082,7 +1082,7 @@
     };
     ```
 
-    Whereas ES6 classes can be defined as an alternative
+    В то время как классы ES6 могут быть определены как альтернатива
 
     ```javascript
     class Bike {
@@ -1099,15 +1099,15 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-27. ### What are closures
+27. ### Что такое замыкания
 
-    A closure is the combination of a function and the lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function’s variables. The closure has three scope chains
+    Замыкания - это комбинация функции и лексического окружения, в котором эта функция была объявлена, т.е. это внутренняя функция, которая имеет доступ к переменным внешней или объемлющей функции. Закрытие имеет три цепочки областей видимости
 
-    1. Own scope where variables defined between its curly brackets
-    2. Outer function’s variables
-    3. Global variables
+    1. Собственная область видимости, в которой находятся переменные, определенные между его фигурными скобками
+    2. Переменные внешней функции
+    3. Глобальные переменные
 
-    Let's take an example of closure concept,
+    Рассмотрим концепцию закрытия на примере,
 
     ```javascript
     function Welcome(name) {
@@ -1121,75 +1121,75 @@
     myFunction("Hello Mr."); //output: Hello Mr.John
     ```
 
-    As per the above code, the inner function(i.e, greetingInfo) has access to the variables in the outer function scope(i.e, Welcome) even after the outer function has returned.
+    Согласно приведенному выше коду, внутренняя функция (т.е. greetingInfo) имеет доступ к переменным в области видимости внешней функции (т.е. Welcome) даже после возврата внешней функции.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-28. ### What are modules
+28. ### Что такое модули
 
-    Modules refer to small units of independent, reusable code and also act as the foundation of many JavaScript design patterns. Most of the JavaScript modules export an object literal, a function, or a constructor
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-29. ### Why do you need modules
-
-    Below are the list of benefits using modules in javascript ecosystem
-
-    1. Maintainability
-    2. Reusability
-    3. Namespacing
+    Модули относятся к небольшим единицам независимого, многократно используемого кода, а также служат основой многих паттернов проектирования JavaScript. Большинство модулей JavaScript экспортируют объектный литерал, функцию или конструктор
 
     **[⬆ Back to Top](#table-of-contents)**
 
-30. ### What is scope in javascript
+29. ### Зачем нужны модули
 
-    Scope is the accessibility of variables, functions, and objects in some particular part of your code during runtime. In other words, scope determines the visibility of variables and other resources in areas of your code.
+    Ниже приведен список преимуществ использования модулей в экосистеме javascript
 
-    **[⬆ Back to Top](#table-of-contents)**
-
-31. ### What is a service worker
-
-    A Service worker is basically a script (JavaScript file) that runs in the background, separate from a web page and provides features that don't need a web page or user interaction. Some of the major features of service workers are Rich offline experiences(offline first web application development), periodic background syncs, push notifications, intercept and handle network requests and programmatically managing a cache of responses.
+    1. Удобство сопровождения
+    2. Возможность повторного использования
+    3. Пространство имен
 
     **[⬆ Back to Top](#table-of-contents)**
 
-32. ### How do you manipulate DOM using a service worker
+30. ### Что такое область видимости в javascript
 
-    Service worker can't access the DOM directly. But it can communicate with the pages it controls by responding to messages sent via the `postMessage` interface, and those pages can manipulate the DOM.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-33. ### How do you reuse information across service worker restarts
-
-    The problem with service worker is that it gets terminated when not in use, and restarted when it's next needed, so you cannot rely on global state within a service worker's `onfetch` and `onmessage` handlers. In this case, service workers will have access to IndexedDB API in order to persist and reuse across restarts.
+    Область видимости - это доступность переменных, функций и объектов в определенной части кода во время выполнения. Другими словами, область видимости определяет видимость переменных и других ресурсов в областях кода.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-34. ### What is IndexedDB
+31. ### Что такое рабочий сервис
 
-    IndexedDB is a low-level API for client-side storage of larger amounts of structured data, including files/blobs. This API uses indexes to enable high-performance searches of this data.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-35. ### What is web storage
-
-    Web storage is an API that provides a mechanism by which browsers can store key/value pairs locally within the user's browser, in a much more intuitive fashion than using cookies. The web storage provides two mechanisms for storing data on the client.
-
-    1. **Local storage:** It stores data for current origin with no expiration date.
-    2. **Session storage:** It stores data for one session and the data is lost when the browser tab is closed.
+    Рабочий сервис - это скрипт (файл JavaScript), который выполняется в фоновом режиме, отдельно от веб-страницы, и предоставляет функции, не требующие веб-страницы или взаимодействия с пользователем. К основным возможностям рабочих служб относятся богатый опыт работы в автономном режиме (разработка веб-приложений в автономном режиме), периодическая фоновая синхронизация, push-уведомления, перехват и обработка сетевых запросов, а также программное управление кэшем ответов.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-36. ### What is a post message
+32. ### Как манипулировать DOM с помощью сервисного работника
 
-    Post message is a method that enables cross-origin communication between Window objects.(i.e, between a page and a pop-up that it spawned, or between a page and an iframe embedded within it). Generally, scripts on different pages are allowed to access each other if and only if the pages follow same-origin policy(i.e, pages share the same protocol, port number, and host).
+    Service worker не имеет прямого доступа к DOM. Но он может взаимодействовать с управляемыми им страницами, отвечая на сообщения, посылаемые через интерфейс `postMessage`, и эти страницы могут манипулировать DOM.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-37. ### What is a Cookie
+33. ### Как повторно использовать информацию при перезапуске сервисного работника
 
-    A cookie is a piece of data that is stored on your computer to be accessed by your browser. Cookies are saved as key/value pairs.
-    For example, you can create a cookie named username as below,
+    Проблема с сервисными рабочими заключается в том, что они завершаются, когда не используются, и перезапускаются при следующей необходимости, поэтому вы не можете полагаться на глобальное состояние в обработчиках `onfetch` и `onmessage` сервисного рабочего. В этом случае сервисные работники будут иметь доступ к API IndexedDB для сохранения и повторного использования состояния после перезапуска.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+34. ### Что такое IndexedDB
+
+    IndexedDB - это низкоуровневый API для хранения на стороне клиента больших объемов структурированных данных, в том числе файлов/блобов. Для обеспечения высокопроизводительного поиска по этим данным в API используются индексы.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+35. ### Что такое веб-хранилище
+
+    Веб-хранилище - это API, обеспечивающий механизм, с помощью которого браузеры могут хранить пары ключ/значение локально в браузере пользователя, что гораздо удобнее, чем использование cookies. Веб-хранилище предоставляет два механизма для хранения данных на клиенте.
+
+    1. **Локальное хранилище:** оно хранит данные для текущего происхождения без ограничения срока действия.
+    2. **Сессионное хранилище:** Оно хранит данные для одного сеанса, и при закрытии вкладки браузера данные теряются.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+36. ### Что такое Post message
+
+    Post message - это метод, обеспечивающий кросс-оригинальное взаимодействие между объектами Window (т.е. между страницей и порожденным ею всплывающим окном, или между страницей и встроенным в нее iframe). Как правило, скриптам на разных страницах разрешается обращаться друг к другу тогда и только тогда, когда страницы следуют политике same-origin (т.е. страницы используют один и тот же протокол, номер порта и хост).
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+37. ### Что такое cookie
+
+    Cookie - это фрагмент данных, который хранится на вашем компьютере и доступен браузеру. Файлы cookie сохраняются в виде пар ключ/значение.
+    Например, можно создать cookie с именем username, как показано ниже,
 
     ```javascript
     document.cookie = "username=John";
@@ -1199,70 +1199,70 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-38. ### Why do you need a Cookie
+38. ### Зачем нужны Cookie
 
-    Cookies are used to remember information about the user profile(such as username). It basically involves two steps,
+    Cookies используются для запоминания информации о профиле пользователя (например, имени пользователя). В основном это включает в себя два этапа,
 
-    1. When a user visits a web page, the user profile can be stored in a cookie.
-    2. Next time the user visits the page, the cookie remembers the user profile.
+    1. Когда пользователь посещает веб-страницу, его профиль может быть сохранен в файле cookie.
+    2. При следующем посещении страницы cookie запоминает профиль пользователя.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-39. ### What are the options in a cookie
+39. ### Какие существуют варианты приготовления cookie
 
-    There are few below options available for a cookie,
+    Существует несколько опций, доступных в cookie,
 
-    1. By default, the cookie is deleted when the browser is closed but you can change this behavior by setting expiry date (in UTC time).
+    1. По умолчанию cookie удаляется при закрытии браузера, но вы можете изменить это поведение, установив срок действия (по времени UTC).
 
-    ```javascript
+    ``javascript
     document.cookie = "username=John; expires=Sat, 8 Jun 2019 12:00:00 UTC";
     ```
 
-    1. By default, the cookie belongs to a current page. But you can tell the browser what path the cookie belongs to using a path parameter.
+    1. По умолчанию cookie принадлежит текущей странице. Но вы можете указать браузеру, к какому пути относится cookie, используя параметр path.
 
-    ```javascript
+    ``javascript
     document.cookie = "username=John; path=/services";
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
-40. ### How do you delete a cookie
+40. ### Как удалить файл cookie
 
-    You can delete a cookie by setting the expiry date as a passed date. You don't need to specify a cookie value in this case.
-    For example, you can delete a username cookie in the current page as below.
+    Вы можете удалить cookie, установив срок действия в виде прошедшей даты. В этом случае не нужно указывать значение cookie.
+    Например, вы можете удалить cookie имени пользователя на текущей странице, как показано ниже.
 
     ```javascript
     document.cookie =
       "username=; expires=Fri, 07 Jun 2019 00:00:00 UTC; path=/;";
     ```
 
-    **Note:** You should define the cookie path option to ensure that you delete the right cookie. Some browsers doesn't allow to delete a cookie unless you specify a path parameter.
+    **Примечание:** Чтобы убедиться, что вы удаляете нужный cookie-файл, необходимо задать параметр пути к нему. Некоторые браузеры не позволяют удалить cookie, если не указан параметр пути.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-41. ### What are the differences between cookie, local storage and session storage
+41. ### Чем отличаются файлы cookie, локальные хранилища и сеансовые хранилища
 
-    Below are some of the differences between cookie, local storage and session storage,
+    Ниже приведены некоторые различия между файлами cookie, локальными хранилищами и сеансовыми хранилищами,
 
-    | Feature                           | Cookie                             | Local storage    | Session storage     |
-    | --------------------------------- | ---------------------------------- | ---------------- | ------------------- |
-    | Accessed on client or server side | Both server-side & client-side     | client-side only | client-side only    |
-    | Lifetime                          | As configured using Expires option | until deleted    | until tab is closed |
-    | SSL support                       | Supported                          | Not supported    | Not supported       |
-    | Maximum data size                 | 4KB                                | 5 MB             | 5MB                 |
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-42. ### What is the main difference between localStorage and sessionStorage
-
-    LocalStorage is the same as SessionStorage but it persists the data even when the browser is closed and reopened(i.e it has no expiration time) whereas in sessionStorage data gets cleared when the page session ends.
+    | Feature                                               | Cookie                                    | Local storage             | Session storage     |
+    | ---------------------------------                     | ----------------------------------        | ----------------          | ------------------- |
+    | Доступ осуществляется на стороне клиента или сервера  | И на стороне сервера, и на стороне клиентa| Только на стороне клиента | Только на стороне клиента |
+    | Время жизни                                           | Как настроено с помощью опции Expires     | до удаления               | до закрытия вкладки |
+    | Поддержка SSL                                         | Поддерживается                            | Не поддерживается | Не поддерживается | Не поддерживается |
+    | Максимальный размер данных | 4 КБ | 5 МБ | 5 Мб                 |
 
     **[⬆ Back to Top](#table-of-contents)**
 
-43. ### How do you access web storage
+42. ### В чем основное различие между localStorage и sessionStorage
 
-    The Window object implements the `WindowLocalStorage` and `WindowSessionStorage` objects which has `localStorage`(window.localStorage) and `sessionStorage`(window.sessionStorage) properties respectively. These properties create an instance of the Storage object, through which data items can be set, retrieved and removed for a specific domain and storage type (session or local).
-    For example, you can read and write on local storage objects as below
+    LocalStorage - это то же самое, что и SessionStorage, но оно сохраняет данные даже при закрытии и повторном открытии браузера (т.е. не имеет времени истечения), в то время как в sessionStorage данные очищаются при завершении сеанса работы со страницей.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+43. ### Как осуществляется доступ к веб-хранилищу
+
+    Объект Window реализует объекты `WindowLocalStorage` и `WindowSessionStorage`, которые имеют свойства `localStorage`(window.localStorage) и `sessionStorage`(window.sessionStorage) соответственно. Эти свойства создают экземпляр объекта Storage, с помощью которого можно устанавливать, извлекать и удалять элементы данных для конкретного домена и типа хранилища (сессионное или локальное).
+    Например, чтение и запись на локальные объекты хранения можно производить следующим образом
 
     ```javascript
     localStorage.setItem("logo", document.getElementById("logo").value);
@@ -1271,36 +1271,36 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-44. ### What are the methods available on session storage
+44. ### Какие методы доступны в хранилище сессий
 
-    The session storage provided methods for reading, writing and clearing the session data
+    В хранилище сессий предусмотрены методы для чтения, записи и очистки данных сессии
 
-    ```javascript
-    // Save data to sessionStorage
+    ``javascript
+    // Сохраняем данные в sessionStorage
     sessionStorage.setItem("key", "value");
 
-    // Get saved data from sessionStorage
+    // Получение сохраненных данных из sessionStorage
     let data = sessionStorage.getItem("key");
 
-    // Remove saved data from sessionStorage
+    // Удалить сохраненные данные из sessionStorage
     sessionStorage.removeItem("key");
 
-    // Remove all saved data from sessionStorage
+    // Удалить все сохраненные данные из sessionStorage
     sessionStorage.clear();
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
-45. ### What is a storage event and its event handler
+45. ### Что такое событие хранения и его обработчик
 
-    The StorageEvent is an event that fires when a storage area has been changed in the context of another document. Whereas onstorage property is an EventHandler for processing storage events.
-    The syntax would be as below
+    StorageEvent - это событие, которое срабатывает при изменении области хранения в контексте другого документа. Свойство onstorage представляет собой обработчик событий для обработки событий хранения.
+    Синтаксис будет выглядеть следующим образом
 
-    ```javascript
+    ``javascript
     window.onstorage = functionRef;
     ```
 
-    Let's take the example usage of onstorage event handler which logs the storage key and it's values
+    Рассмотрим пример использования обработчика события onstorage, который регистрирует ключ хранилища и его значения
 
     ```javascript
     window.onstorage = function (e) {
@@ -1318,15 +1318,15 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-46. ### Why do you need web storage
+46. ### Зачем нужно веб-хранилище
 
-    Web storage is more secure, and large amounts of data can be stored locally, without affecting website performance. Also, the information is never transferred to the server. Hence this is a more recommended approach than Cookies.
+    Веб-хранилище более безопасно, и большие объемы данных могут храниться локально, не влияя на производительность сайта. Кроме того, информация никогда не передается на сервер. Поэтому такой подход более рекомендован, чем использование Cookies.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-47. ### How do you check web storage browser support
+47. ### Как проверить поддержку браузерами веб-хранилищ
 
-    You need to check browser support for localStorage and sessionStorage before using web storage,
+    Перед использованием веб-хранилища необходимо проверить поддержку браузером localStorage и sessionStorage,
 
     ```javascript
     if (typeof Storage !== "undefined") {
@@ -1338,9 +1338,9 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-48. ### How do you check web workers browser support
+48. ### Как проверить поддержку браузерами веб-рабочих
 
-    You need to check browser support for web workers before using it
+    Перед использованием веб-рабочих необходимо проверить их поддержку браузерами
 
     ```javascript
     if (typeof Worker !== "undefined") {
@@ -1352,11 +1352,11 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-49. ### Give an example of a web worker
+49. ### Приведите пример веб-работника
 
-    You need to follow below steps to start using web workers for counting example
+    Для того чтобы начать использовать веб-рабочие на примере подсчета, необходимо выполнить следующие действия
 
-    1. Create a Web Worker File: You need to write a script to increment the count value. Let's name it as counter.js
+    1. Создание файла веб-работника: необходимо написать скрипт, который будет увеличивать значение счета. Назовем его counter.js
 
     ```javascript
     let i = 0;
@@ -1370,9 +1370,9 @@
     timedCount();
     ```
 
-    Here postMessage() method is used to post a message back to the HTML page
+    Здесь метод postMessage() используется для отправки сообщения обратно на HTML-страницу
 
-    1. Create a Web Worker Object: You can create a web worker object by checking for browser support. Let's name this file as web_worker_example.js
+    1. Создание объекта Web Worker: Создать объект Web Worker можно, проверив его поддержку браузером. Назовем этот файл web_worker_example.js
 
     ```javascript
     if (typeof w == "undefined") {
@@ -1380,7 +1380,7 @@
     }
     ```
 
-    and we can receive messages from web worker
+    и мы можем получать сообщения от web worker
 
     ```javascript
     w.onmessage = function (event) {
@@ -1388,14 +1388,14 @@
     };
     ```
 
-    1. Terminate a Web Worker:
-       Web workers will continue to listen for messages (even after the external script is finished) until it is terminated. You can use the terminate() method to terminate listening to the messages.
+    1. Завершение работы Web Worker:
+       Web-рабочие будут продолжать прослушивать сообщения (даже после завершения работы внешнего скрипта) до тех пор, пока не будут завершены. Для прекращения прослушивания сообщений можно использовать метод terminate().
 
     ```javascript
     w.terminate();
     ```
 
-    1. Reuse the Web Worker: If you set the worker variable to undefined you can reuse the code
+    1. Повторное использование Web Worker: Если установить для рабочей переменной значение undefined, то можно повторно использовать код
 
     ```javascript
     w = undefined;
@@ -1403,13 +1403,13 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-50. ### What are the restrictions of web workers on DOM
+50. ### Каковы ограничения веб-работников на DOM
 
-    WebWorkers don't have access to below javascript objects since they are defined in an external files
+    WebWorkers не имеют доступа к нижеперечисленным javascript-объектам, поскольку они определены во внешних файлах
 
-    1. Window object
-    2. Document object
-    3. Parent object
+    1. Объект Window
+    2. Объект Document
+    3. Родительский объект
 
     **[⬆ Back to Top](#table-of-contents)**
 
