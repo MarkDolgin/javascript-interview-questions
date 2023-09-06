@@ -23,22 +23,22 @@
 
 | No. | Questions                                                                                                                                                     |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | [What are the possible ways to create objects in JavaScript](#what-are-the-possible-ways-to-create-objects-in-javascript)                                     |
-| 2   | [What is a prototype chain](#what-is-a-prototype-chain)                                                                                                       |
-| 3   | [What is the difference between Call, Apply and Bind](#what-is-the-difference-between-call-apply-and-bind)                                                    |
-| 4   | [What is JSON and its common operations](#what-is-json-and-its-common-operations)                                                                             |
-| 5   | [What is the purpose of the array slice method](#what-is-the-purpose-of-the-array-slice-method)                                                               |
-| 6   | [What is the purpose of the array splice method](#what-is-the-purpose-of-the-array-splice-method)                                                             |
-| 7   | [What is the difference between slice and splice](#what-is-the-difference-between-slice-and-splice)                                                           |
-| 8   | [How do you compare an Object with a Map](#how-do-you-compare-object-and-map)                                                                                 |
-| 9   | [What is the difference between == and === operators](#what-is-the-difference-between--and--operators)                                                        |
-| 10  | [What are lambda or arrow functions](#what-are-lambda-or-arrow-functions)                                                                                     |
-| 11  | [What is a first class function](#what-is-a-first-class-function)                                                                                             |
-| 12  | [What is a first order function](#what-is-a-first-order-function)                                                                                             |
-| 13  | [What is a higher order function](#what-is-a-higher-order-function)                                                                                           |
-| 14  | [What is a unary function](#what-is-a-unary-function)                                                                                                         |
-| 15  | [What is the currying function](#what-is-the-currying-function)                                                                                               |
-| 16  | [What is a pure function](#what-is-a-pure-function)                                                                                                           |
+| 1   | [Каковы возможные способы создания объектов в JavaScript](#Каковы-возможные-способы-создания-объектов-в-JavaScript)                                     |
+| 2   | [Что такое цепочка прототипов](#Что-такое-цепочка-прототипов)| |
+| 3   | [В чем разница между вызовами, применением и связыванием](#what-is-the-difference-between-call-apply-and-bind)| |
+| 4   | [Что такое JSON и его общие операции](#what-is-json-and-its-common-operations) |
+| 5   | [Каково назначение метода array slice](#what-is-the-purpose-of-the-array-slice-method) |
+| 6   | [Каково назначение метода разбиения массива на части](#what-is-the-purpose-of-the-array-splice-method) |
+| 7   | [В чем разница между slice и splice](#what-is-the-difference-between-slice-and-splice) |
+| 8   | [Как сравнить объект и карту](#how-do-you-compare-object-and-map) |
+| 9   | [В чем разница между операторами == и ===](#what-is-the-difference-between--and--operators) |
+| 10   | [Что такое лямбда- или стрелочные функции](#what-are-lambda-or-arrow-functions) |
+| 11   | [Что такое функция первого класса](#what-is-a-first-class-function) |
+| 12   | [Что такое функция первого порядка](#what-is-a-first-order-function) |
+| 13   | [Что такое функция высшего порядка](#what-is-a-higher-order-function)| |
+| 14   | [Что такое унарная функция](#what-is-a-unary-function)| |
+| 15   | [Что такое функция каррирования](#what-is-the-currying-function)                                                                                               |
+| 16   | [What is a pure function](#what-is-a-pure-function)                                                                                                           |
 | 17  | [What is the purpose of the let keyword](#what-is-the-purpose-of-the-let-keyword)                                                                             |
 | 18  | [What is the difference between let and var](#what-is-the-difference-between-let-and-var)                                                                     |
 | 19  | [What is the reason to choose the name let as a keyword](#what-is-the-reason-to-choose-the-name-let-as-a-keyword)                                             |
@@ -1413,11 +1413,11 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-51. ### What is a promise
+51. ### Что такое Promise
 
-    A promise is an object that may produce a single value some time in the future with either a resolved value or a reason that it’s not resolved(for example, network error). It will be in one of the 3 possible states: fulfilled, rejected, or pending.
+    Promise - это объект, который может выдать одно значение через некоторое время в будущем либо с разрешенным значением, либо с причиной, по которой оно не было разрешено (например, ошибка сети). Он будет находиться в одном из трех возможных состояний: выполнено, отклонено или ожидает выполнения.
 
-    The syntax of Promise creation looks like below,
+    Синтаксис создания Promise выглядит следующим образом,
 
     ```javascript
     const promise = new Promise(function (resolve, reject) {
@@ -1425,7 +1425,7 @@
     });
     ```
 
-    The usage of a promise would be as below,
+    Обещание можно использовать следующим образом,
 
     ```javascript
     const promise = new Promise(
@@ -1440,32 +1440,32 @@
     promise.then((value) => console.log(value));
     ```
 
-    The action flow of a promise will be as below,
+    Поток действий при выполнении обещания будет выглядеть следующим образом,
 
     ![Screenshot](images/promises.png)
 
     **[⬆ Back to Top](#table-of-contents)**
 
-52. ### Why do you need a promise
+52. ### Зачем нужны promise
 
-    Promises are used to handle asynchronous operations. They provide an alternative approach for callbacks by reducing the callback hell and writing the cleaner code.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-53. ### What are the three states of promise
-
-    Promises have three states:
-
-    1. **Pending:** This is an initial state of the Promise before an operation begins
-    2. **Fulfilled:** This state indicates that the specified operation was completed.
-    3. **Rejected:** This state indicates that the operation did not complete. In this case an error value will be thrown.
+    Promise используются для обработки асинхронных операций. Они обеспечивают альтернативный подход к обратным вызовам, сокращая ад обратных вызовов и позволяя писать более чистый код.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-54. ### What is a callback function
+53. ### Каковы три состояния обещания
 
-    A callback function is a function passed into another function as an argument. This function is invoked inside the outer function to complete an action.
-    Let's take a simple example of how to use callback function
+    Обещания имеют три состояния:
+
+    1. **Pending:** Это начальное состояние обещания перед началом выполнения операции.
+    2. **Fulfilled:** Это состояние указывает на то, что указанная операция была выполнена.
+    3. **Rejected:** Это состояние указывает на то, что операция не была завершена. В этом случае будет выброшено значение ошибки.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+54. ### Что такое функция обратного вызова
+
+    Функция обратного вызова - это функция, передаваемая в другую функцию в качестве аргумента. Эта функция вызывается внутри внешней функции для завершения какого-либо действия.
+    Рассмотрим простой пример использования функции обратного вызова
 
     ```javascript
     function callbackFunction(name) {
@@ -1482,10 +1482,10 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-55. ### Why do we need callbacks
+55. ### Зачем нужны обратные вызовы
 
-    The callbacks are needed because javascript is an event driven language. That means instead of waiting for a response javascript will keep executing while listening for other events.
-    Let's take an example with the first function invoking an API call(simulated by setTimeout) and the next function which logs the message.
+    Обратные вызовы нужны потому, что javascript - это язык, управляемый событиями. Это означает, что вместо ожидания ответа javascript будет продолжать выполнение, слушая другие события.
+    Рассмотрим пример с первой функцией, вызывающей вызов API (моделируемый setTimeout), и следующей функцией, которая регистрирует сообщение.
 
     ```javascript
     function firstFunction() {
@@ -1505,13 +1505,13 @@
     // First function called
     ```
 
-    As observed from the output, javascript didn't wait for the response of the first function and the remaining code block got executed. So callbacks are used in a way to make sure that certain code doesn’t execute until the other code finishes execution.
+    Как видно из вывода, javascript не стал дожидаться ответа первой функции и выполнил оставшийся блок кода. Таким образом, обратные вызовы используются для того, чтобы убедиться, что определенный код не будет выполняться до тех пор, пока не завершится выполнение другого кода.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-56. ### What is a callback hell
+56. ### Что такое ад обратных вызовов
 
-    Callback Hell is an anti-pattern with multiple nested callbacks which makes code hard to read and debug when dealing with asynchronous logic. The callback hell looks like below,
+    Ад обратных вызовов - это антипаттерн с множеством вложенных обратных вызовов, который затрудняет чтение и отладку кода при работе с асинхронной логикой. Ад обратных вызовов выглядит следующим образом,
 
     ```javascript
     async1(function(){
@@ -1527,15 +1527,15 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-57. ### What are server-sent events
+57. ### Что такое события, отправляемые сервером
 
-    Server-sent events (SSE) is a server push technology enabling a browser to receive automatic updates from a server via HTTP connection without resorting to polling. These are a one way communications channel - events flow from server to client only. This has been used in Facebook/Twitter updates, stock price updates, news feeds etc.
+    Server-sent events (SSE) - это технология server push, позволяющая браузеру получать автоматические обновления от сервера через HTTP-соединение, не прибегая к опросу. Это односторонний канал связи - события передаются только от сервера к клиенту. Она используется в обновлениях Facebook/Twitter, биржевых котировках, новостных лентах и т.д.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-58. ### How do you receive server-sent event notifications
+58. ### Как получать уведомления о событиях, отправляемых сервером
 
-    The EventSource object is used to receive server-sent event notifications. For example, you can receive messages from server as below,
+    Для получения уведомлений о событиях, отправляемых сервером, используется объект EventSource. Например, вы можете получать сообщения от сервера следующим образом,
 
     ```javascript
     if (typeof EventSource !== "undefined") {
@@ -1548,56 +1548,56 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-59. ### How do you check browser support for server-sent events
+59. ### Как проверить поддержку браузером событий, отправляемых сервером
 
-    You can perform browser support for server-sent events before using it as below,
+    Перед использованием можно выполнить проверку поддержки браузером отправляемых сервером событий, как показано ниже,
 
     ```javascript
     if (typeof EventSource !== "undefined") {
-      // Server-sent events supported. Let's have some code here!
+      // Поддерживаются события, отправляемые сервером. Давайте здесь немного кода!
     } else {
-      // No server-sent events supported
+      // События, отправляемые сервером, не поддерживаются
     }
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
-60. ### What are the events available for server sent events
+60. ### Какие события доступны для отправленных сервером событий
 
-    Below are the list of events available for server sent events
+    Ниже приведен список событий, доступных для отправленных сервером событий
     | Event | Description |
     |---- | ---------
-    | onopen | It is used when a connection to the server is opened |
-    | onmessage | This event is used when a message is received |
-    | onerror | It happens when an error occurs|
+    | onopen | Это событие используется при открытии соединения с сервером |
+    | onmessage | Это событие используется при получении сообщения |
+    | onerror | Происходит при возникновении ошибки|
 
     **[⬆ Back to Top](#table-of-contents)**
 
-61. ### What are the main rules of promise
+61. ### Каковы основные правила обещания
 
-    A promise must follow a specific set of rules:
+    Обещание должно соответствовать определенному набору правил:
 
-    1. A promise is an object that supplies a standard-compliant `.then()` method
-    2. A pending promise may transition into either fulfilled or rejected state
-    3. A fulfilled or rejected promise is settled and it must not transition into any other state.
-    4. Once a promise is settled, the value must not change.
+    1. Обещание - это объект, который предоставляет стандартный метод `.then()`.
+    2. Выполненное обещание может переходить в состояние "выполнено" или "отклонено".
+    3. Выполненное или отклоненное обещание считается выполненным и не должно переходить ни в какое другое состояние.
+    4. После того как обещание выполнено, его значение не должно меняться.
 
     **[⬆ Back to Top](#table-of-contents)**
 
 62. ### What is callback in callback
 
-    You can nest one callback inside in another callback to execute the actions sequentially one by one. This is known as callbacks in callbacks.
+    Для последовательного выполнения действий можно вложить один обратный вызов в другой обратный вызов. Это известно как callbacks in callbacks.
 
-    ```javascript
+    ``javascript
     loadScript("/script1.js", function (script) {
-      console.log("first script is loaded");
+      console.log("первый скрипт загружен");
 
       loadScript("/script2.js", function (script) {
-        console.log("second script is loaded");
+        console.log("второй скрипт загружен");
 
         loadScript("/script3.js", function (script) {
-          console.log("third script is loaded");
-          // after all scripts are loaded
+          console.log("третий скрипт загружен");
+          // после загрузки всех скриптов
         });
       });
     });
@@ -1605,9 +1605,9 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-63. ### What is promise chaining
+63. ### Что такое цепочка обещаний
 
-    The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining. Let's take an example of promise chaining for calculating the final result,
+    Процесс выполнения последовательности асинхронных задач друг за другом с использованием обещаний известен как Promise chaining. Рассмотрим пример цепочки обещаний для вычисления конечного результата,
 
     ```javascript
     new Promise(function (resolve, reject) {
@@ -1627,32 +1627,32 @@
       });
     ```
 
-    In the above handlers, the result is passed to the chain of .then() handlers with the below work flow,
+    В приведенных выше обработчиках результат передается в цепочку обработчиков .then() по следующей схеме,
 
-    1. The initial promise resolves in 1 second,
-    2. After that `.then` handler is called by logging the result(1) and then return a promise with the value of result \* 2.
-    3. After that the value passed to the next `.then` handler by logging the result(2) and return a promise with result \* 3.
-    4. Finally the value passed to the last `.then` handler by logging the result(6) and return a promise with result \* 4.
+    1. Начальное обещание разрешается за 1 секунду,
+    2. После этого вызывается обработчик `.then`, который регистрирует результат(1) и возвращает обещание со значением результата \* 2.
+    3. После этого значение передается следующему обработчику `.then`, регистрируя результат(2) и возвращая обещание с результатом \* 3.
+    4. Наконец, значение, переданное последнему обработчику `.then`, заносим в журнал result(6) и возвращаем обещание с результатом \* 4.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-64. ### What is promise.all
+64. ### Что такое promise.all
 
-    Promise.all is a promise that takes an array of promises as an input (an iterable), and it gets resolved when all the promises get resolved or any one of them gets rejected. For example, the syntax of promise.all method is below,
+    Promise.all - это метод обещания, который принимает на вход массив обещаний (итерируемый массив) и разрешается, когда все обещания будут разрешены или какое-либо из них будет отвергнуто. Например, синтаксис метода promise.all приведен ниже,
 
-    ```javascript
-    Promise.all([Promise1, Promise2, Promise3]) .then(result) => {   console.log(result) }) .catch(error => console.log(`Error in promises ${error}`))
+    ``javascript
+    Promise.all([Promise1, Promise2, Promise3]) .then(result) => { console.log(result) }) .catch(error => console.log(`Error in promises ${error}`))
     ```
 
-    **Note:** Remember that the order of the promises(output the result) is maintained as per input order.
+    **Примечание:** Помните, что порядок выполнения обещаний (вывода результата) сохраняется в соответствии с порядком ввода.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-65. ### What is the purpose of the race method in promise
+65. ### Каково назначение метода race в promise
 
-    Promise.race() method will return the promise instance which is firstly resolved or rejected. Let's take an example of race() method where promise2 is resolved first
+    Метод Promise.race() возвращает тот экземпляр обещания, который первым был разрешен или отклонен. Рассмотрим пример метода race(), в котором первым будет разрешено обещание promise2
 
-    ```javascript
+    ``javascript
     var promise1 = new Promise(function (resolve, reject) {
       setTimeout(resolve, 500, "one");
     });
@@ -1661,72 +1661,72 @@
     });
 
     Promise.race([promise1, promise2]).then(function (value) {
-      console.log(value); // "two" // Both promises will resolve, but promise2 is faster
+      console.log(value); // "два" // Оба обещания разрешатся, но обещание2 быстрее
     });
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
-66. ### What is a strict mode in javascript
+66. ### Что такое строгий режим в javascript
 
-    Strict Mode is a new feature in ECMAScript 5 that allows you to place a program, or a function, in a “strict” operating context. This way it prevents certain actions from being taken and throws more exceptions. The literal expression `"use strict";` instructs the browser to use the javascript code in the Strict mode.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-67. ### Why do you need strict mode
-
-    Strict mode is useful to write "secure" JavaScript by notifying "bad syntax" into real errors. For example, it eliminates accidentally creating a global variable by throwing an error and also throws an error for assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object.
+    Строгий режим - это новая возможность в ECMAScript 5, которая позволяет поместить программу или функцию в "строгий" рабочий контекст. Таким образом, она не позволяет выполнять определенные действия и выбрасывает больше исключений. Буквальное выражение `"use strict";` предписывает браузеру использовать код javascript в строгом режиме.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-68. ### How do you declare strict mode
+67. ### Зачем нужен строгий режим
 
-    The strict mode is declared by adding "use strict"; to the beginning of a script or a function.
-    If declared at the beginning of a script, it has global scope.
+    Строгий режим полезен для написания "безопасного" JavaScript, поскольку он предупреждает о том, что "плохой синтаксис" превращается в реальные ошибки. Например, он исключает случайное создание глобальной переменной, выдавая ошибку, а также выдает ошибку при присваивании не записываемому свойству, свойству, предназначенному только для геттера, несуществующему свойству, несуществующей переменной или несуществующему объекту.
 
-    ```javascript
+    **[⬆ Back to Top](#table-of-contents)**
+
+68. ### Как объявить строгий режим
+
+    Строгий режим объявляется путем добавления "use strict"; в начало скрипта или функции.
+    Если режим объявлен в начале скрипта, то он имеет глобальную область видимости.
+
+    ``javascript
     "use strict";
-    x = 3.14; // This will cause an error because x is not declared
+    x = 3.14; // Это приведет к ошибке, так как x не объявлен
     ```
 
-    and if you declare inside a function, it has local scope
+    а если объявить внутри функции, то она имеет локальную область видимости
 
     ```javascript
-    x = 3.14; // This will not cause an error.
+    x = 3.14; // Это не приведет к ошибке.
     myFunction();
 
     function myFunction() {
       "use strict";
-      y = 3.14; // This will cause an error
+      y = 3.14; // Это приведет к ошибке
     }
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
-69. ### What is the purpose of double exclamation
+69. ### Назначение двойного восклицания
 
-    The double exclamation or negation(!!) ensures the resulting type is a boolean. If it was falsey (e.g. 0, null, undefined, etc.), it will be false, otherwise, it will be true.
-    For example, you can test IE version using this expression as below,
+    Двойное восклицание или отрицание(!!) гарантирует, что результирующий тип будет булевым. Если он ложный (например, 0, null, undefined и т.д.), то будет false, в противном случае - true.
+    Например, можно проверить версию IE, используя это выражение, как показано ниже,
 
-    ```javascript
+    ``javascript
     let isIE8 = false;
     isIE8 = !!navigator.userAgent.match(/MSIE 8.0/);
-    console.log(isIE8); // returns true or false
+    console.log(isIE8); // возвращает true или false
     ```
 
-    If you don't use this expression then it returns the original value.
+    Если не использовать это выражение, то возвращается исходное значение.
 
     ```javascript
-    console.log(navigator.userAgent.match(/MSIE 8.0/)); // returns either an Array or null
+    console.log(navigator.userAgent.match(/MSIE 8.0/)); // возвращает либо массив, либо null
     ```
 
-    **Note:** The expression !! is not an operator, but it is just twice of ! operator.
+    **Примечание:** Выражение !! не является оператором, а представляет собой просто удвоение оператора !
 
     **[⬆ Back to Top](#table-of-contents)**
 
-70. ### What is the purpose of the delete operator
+70. ### Каково назначение оператора delete
 
-    The delete keyword is used to delete the property as well as its value.
+    Ключевое слово delete используется для удаления свойства, а также его значения.
 
     ```javascript
     var user = { name: "John", age: 20 };
@@ -1737,28 +1737,28 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-71. ### What is typeof operator
+71. ### Что такое оператор typeof
 
-    You can use the JavaScript typeof operator to find the type of a JavaScript variable. It returns the type of a variable or an expression.
+    Для определения типа переменной JavaScript можно использовать оператор typeof. Он возвращает тип переменной или выражения.
 
-    ```javascript
-    typeof "John Abraham"; // Returns "string"
-    typeof (1 + 2); // Returns "number"
-    typeof [1, 2, 3]; // Returns "object" because all arrays are also objects
+    ``javascript
+    typeof "John Abraham"; // Возвращает "string"
+    typeof (1 + 2); // Возвращает "число"
+    typeof [1, 2, 3]; // Возвращает "объект", поскольку все массивы также являются объектами
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
-72. ### What is undefined property
+72. ### Что такое неопределенное свойство
 
-    The undefined property indicates that a variable has not been assigned a value, or declared but not initialized at all. The type of undefined value is undefined too.
+    Свойство undefined указывает на то, что переменной не было присвоено значение, либо она была объявлена, но не инициализирована вообще. Тип неопределенного значения также является неопределенным.
 
-    ```javascript
-    var user; // Value is undefined, type is undefined
-    console.log(typeof user); //undefined
+    ``javascript
+    var user; // Значение не определено, тип не определен
+    console.log(typeof user); //неопределено
     ```
 
-    Any variable can be emptied by setting the value to undefined.
+    Любая переменная может быть опустошена путем установки значения undefined.
 
     ```javascript
     user = undefined;
@@ -1766,10 +1766,10 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-73. ### What is null value
+73. ### Что такое значение null
 
-    The value null represents the intentional absence of any object value. It is one of JavaScript's primitive values. The type of null value is object.
-    You can empty the variable by setting the value to null.
+    Значение null представляет собой намеренное отсутствие какого-либо значения объекта. Это одно из примитивных значений JavaScript. Тип значения null - объект.
+    Вы можете очистить переменную, установив значение null.
 
     ```javascript
     var user = null;
@@ -1778,23 +1778,23 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-74. ### What is the difference between null and undefined
+74. ### В чем разница между null и undefined
 
-    Below are the main differences between null and undefined,
+    Ниже приведены основные различия между null и undefined,
 
     | Null                                                                                            | Undefined                                                                                               |
     | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-    | It is an assignment value which indicates that variable points to no object.                    | It is not an assignment value where a variable has been declared but has not yet been assigned a value. |
-    | Type of null is object                                                                          | Type of undefined is undefined                                                                          |
-    | The null value is a primitive value that represents the null, empty, or non-existent reference. | The undefined value is a primitive value used when a variable has not been assigned a value.            |
-    | Indicates the absence of a value for a variable                                                 | Indicates absence of variable itself                                                                    |
-    | Converted to zero (0) while performing primitive operations                                     | Converted to NaN while performing primitive operations                                                  |
+    | Это значение присваивания, которое указывает на то, что переменная не указывает на объект.      | Это не значение присваивания, когда переменная была объявлена, но ей еще не присвоено значение. |
+    | Тип null - это object                                                                           | Тип undefined - это undefined |
+    | | Значение null - это примитивное значение, представляющее собой нулевую, пустую или несуществующую ссылку. | Неопределенное значение - это примитивное значение, используемое, когда переменной не присвоено значение.            |
+    | Указывает на отсутствие значения для переменной                                                   | Указывает на отсутствие самой переменной |
+    | Преобразуется в ноль (0) при выполнении примитивных операций                                     | Преобразуется в NaN при выполнении примитивных операций                                                  
 
     **[⬆ Back to Top](#table-of-contents)**
 
-75. ### What is eval
+75. ### Что такое eval
 
-    The eval() function evaluates JavaScript code represented as a string. The string can be a JavaScript expression, variable, statement, or sequence of statements.
+    Функция eval() оценивает код JavaScript, представленный в виде строки. Строка может быть выражением JavaScript, переменной, оператором или последовательностью операторов.
 
     ```javascript
     console.log(eval("1 + 2")); //  3
@@ -1802,21 +1802,21 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-76. ### What is the difference between window and document
+76. ### В чем разница между окном и документом
 
-    Below are the main differences between window and document,
+    Ниже приведены основные различия между окном и документом,
 
     | Window                                                                        | Document                                                                                      |
     | ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-    | It is the root level element in any web page                                  | It is the direct child of the window object. This is also known as Document Object Model(DOM) |
-    | By default window object is available implicitly in the page                  | You can access it via window.document or document.                                            |
-    | It has methods like alert(), confirm() and properties like document, location | It provides methods like getElementById, getElementsByTagName, createElement etc              |
+    | Это элемент корневого уровня любой веб-страницы | Он является непосредственным дочерним элементом объекта window. Это также известно как объектная модель документа (DOM)|
+    | По умолчанию объект window неявно доступен на странице | Вы можете получить к нему доступ через window.document или document.                                            |
+    | Он имеет методы alert(), confirm() и свойства document, location | Он предоставляет такие методы, как getElementById, getElementsByTagName, createElement и т.д.              |
 
     **[⬆ Back to Top](#table-of-contents)**
 
-77. ### How do you access history in javascript
+77. ### Как получить доступ к истории в javascript
 
-    The window.history object contains the browser's history. You can load previous and next URLs in the history using back() and next() methods.
+    Объект window.history содержит историю браузера. С помощью методов back() и next() можно загрузить предыдущий и следующий URL-адреса в историю.
 
     ```javascript
     function goBack() {
@@ -1827,15 +1827,15 @@
     }
     ```
 
-    **Note:** You can also access history without window prefix.
+    **Примечание:** Доступ к истории можно получить и без префикса окна.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-78. ### How do you detect caps lock key turned on or not
+78. ### Как определить включена или нет клавиша caps lock
 
-    The `mouseEvent getModifierState()` is used to return a boolean value that indicates whether the specified modifier key is activated or not. The modifiers such as CapsLock, ScrollLock and NumLock are activated when they are clicked, and deactivated when they are clicked again.
+    Функция `mouseEvent getModifierState()` используется для возврата булевого значения, которое показывает, активизирована ли указанная клавиша-модификатор или нет. Такие модификаторы, как CapsLock, ScrollLock и NumLock, активируются при нажатии на них и деактивируются при повторном нажатии.
 
-    Let's take an input element to detect the CapsLock on/off behavior with an example,
+    Рассмотрим на примере элемент ввода для определения поведения включения/выключения CapsLock,
 
     ```html
     <input type="password" onmousedown="enterInput(event)" />
@@ -1857,9 +1857,9 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-79. ### What is isNaN
+79. ### Что такое isNaN
 
-    The isNaN() function is used to determine whether a value is an illegal number (Not-a-Number) or not. i.e, This function returns true if the value equates to NaN. Otherwise it returns false.
+    Функция isNaN() используется для определения того, является ли значение недопустимым числом (Not-a-Number) или нет. Т.е. эта функция возвращает true, если значение равно NaN. В противном случае возвращается false.
 
     ```javascript
     isNaN("Hello"); //true
@@ -1868,36 +1868,36 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-80. ### What are the differences between undeclared and undefined variables
+80. ### Чем отличаются необъявленные и неопределенные переменные
 
-    Below are the major differences between undeclared(not defined) and undefined variables,
+    Ниже приведены основные различия между необъявленными (не определенными) и неопределенными переменными,
 
     | undeclared                                                                                  | undefined                                                                              |
     | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-    | These variables do not exist in a program and are not declared                              | These variables declared in the program but have not assigned any value                |
-    | If you try to read the value of an undeclared variable, then a runtime error is encountered | If you try to read the value of an undefined variable, an undefined value is returned. |
+    | Эти переменные не существуют в программе и не объявлены                                   | Эти переменные объявлены в программе, но им не присвоено никакого значения |
+    | Если попытаться прочитать значение необъявленной переменной, то возникнет ошибка времени выполнения | Если попытаться прочитать значение неопределенной переменной, то будет возвращено неопределенное значение. |
 
     **[⬆ Back to Top](#table-of-contents)**
 
-81. ### What are global variables
+81. ### Что такое глобальные переменные
 
-    Global variables are those that are available throughout the length of the code without any scope. The var keyword is used to declare a local variable but if you omit it then it will become global variable
+    Глобальные переменные - это переменные, которые доступны по всей длине кода без какой-либо области видимости. Ключевое слово var используется для объявления локальной переменной, но если его опустить, то она станет глобальной.
 
     ```javascript
-    msg = "Hello"; // var is missing, it becomes global variable
+    msg = "Hello"; // var отсутствует, она становится глобальной переменной
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
-82. ### What are the problems with global variables
+82. ### В чем заключаются проблемы с глобальными переменными
 
-    The problem with global variables is the conflict of variable names of local and global scope. It is also difficult to debug and test the code that relies on global variables.
+    Проблема глобальных переменных заключается в конфликте имен переменных локальной и глобальной областей видимости. Кроме того, трудно отлаживать и тестировать код, который опирается на глобальные переменные.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-83. ### What is NaN property
+83. ### Что такое свойство NaN
 
-    The NaN property is a global property that represents "Not-a-Number" value. i.e, It indicates that a value is not a legal number. It is very rare to use NaN in a program but it can be used as return value for few cases
+    Свойство NaN - это глобальное свойство, которое представляет собой значение "не-число", т.е. указывает на то, что значение не является правильным числом. В программе NaN используется очень редко, но в некоторых случаях оно может быть использовано в качестве возвращаемого значения
 
     ```javascript
     Math.sqrt(-1);
@@ -1906,9 +1906,9 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-84. ### What is the purpose of isFinite function
+84. ### Каково назначение функции isFinite
 
-    The isFinite() function is used to determine whether a number is a finite, legal number. It returns false if the value is +infinity, -infinity, or NaN (Not-a-Number), otherwise it returns true.
+    Функция isFinite() используется для определения того, является ли число конечным, законным числом. Она возвращает false, если значение равно +infinity, -infinity или NaN (Not-a-Number), в противном случае возвращается true.
 
     ```javascript
     isFinite(Infinity); // false
@@ -1920,31 +1920,31 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-85. ### What is an event flow
+85. ### Что такое поток событий
 
-    Event flow is the order in which event is received on the web page. When you click an element that is nested in various other elements, before your click actually reaches its destination, or target element, it must trigger the click event for each of its parent elements first, starting at the top with the global window object.
-    There are two ways of event flow
+    Поток событий - это порядок поступления событий на веб-страницу. Когда вы щелкаете на элементе, вложенном в другие элементы, прежде чем щелчок достигнет цели, он должен вызвать событие щелчка для каждого из своих родительских элементов, начиная с самого верхнего - объекта глобального окна.
+    Существует два способа передачи событий
 
-    1. Top to Bottom(Event Capturing)
-    2. Bottom to Top (Event Bubbling)
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-86. ### What is event bubbling
-
-    Event bubbling is a type of event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till it reaches the outermost DOM element.
+    1. Сверху вниз (захват событий)
+    2. Снизу вверх (перетекание событий)
 
     **[⬆ Back to Top](#table-of-contents)**
 
-87. ### What is event capturing
+86. ### Что такое бустинг событий
 
-    Event capturing is a type of event propagation where the event is first captured by the outermost element, and then successively triggers on the descendants (children) of the target element in the same nesting hierarchy till it reaches the innermost DOM element.
+    Вспышка событий - это тип распространения событий, при котором событие сначала срабатывает на самом внутреннем целевом элементе, а затем последовательно срабатывает на предках (родителях) целевого элемента в той же иерархии вложенности, пока не достигнет самого внешнего элемента DOM.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-88. ### How do you submit a form using JavaScript
+87. ### Что такое захват события
 
-    You can submit a form using `document.forms[0].submit()`. All the form input's information is submitted using onsubmit event handler
+    Перехват событий - это тип распространения событий, при котором событие сначала перехватывается крайним элементом, а затем последовательно срабатывает на потомков (детей) целевого элемента в той же иерархии вложенности, пока не достигнет самого внутреннего элемента DOM.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+88. ### Как отправить форму с помощью JavaScript
+
+    Отправить форму можно с помощью команды `document.forms[0].submit()`. Вся информация, введенная в форму, передается с помощью обработчика события onsubmit
 
     ```javascript
     function submit() {
@@ -1954,9 +1954,9 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-89. ### How do you find operating system details
+89. ### Как найти сведения об операционной системе
 
-    The window.navigator object contains information about the visitor's browser OS details. Some of the OS properties are available under platform property,
+    Объект window.navigator содержит информацию об ОС браузера посетителя. Некоторые из свойств ОС доступны в свойстве platform,
 
     ```javascript
     console.log(navigator.platform);
@@ -1964,83 +1964,83 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-90. ### What is the difference between document load and DOMContentLoaded events
+90. ### В чем разница между событиями `Загрузка документа` и `Загрузка DOMContentLoaded
 
-    The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for assets(stylesheets, images, and subframes) to finish loading. Whereas The load event is fired when the whole page has loaded, including all dependent resources(stylesheets, images).
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-91. ### What is the difference between native, host and user objects
-
-    `Native objects` are objects that are part of the JavaScript language defined by the ECMAScript specification. For example, String, Math, RegExp, Object, Function etc core objects defined in the ECMAScript spec.
-    `Host objects` are objects provided by the browser or runtime environment (Node). For example, window, XmlHttpRequest, DOM nodes etc are considered as host objects.
-    `User objects` are objects defined in the javascript code. For example, User objects created for profile information.
+    Событие `DOMContentLoaded` запускается, когда исходный HTML-документ полностью загружен и проанализирован, не дожидаясь окончания загрузки ресурсов (таблиц стилей, изображений и подкадров). В то время как событие Load срабатывает, когда загрузилась вся страница, включая все зависимые ресурсы (таблицы стилей, изображения).
 
     **[⬆ Back to Top](#table-of-contents)**
 
-92. ### What are the tools or techniques used for debugging JavaScript code
+91. ### В чем разница между нативными, хостовыми и пользовательскими объектами
 
-    You can use below tools or techniques for debugging javascript
+    Родные объекты - это объекты, являющиеся частью языка JavaScript и определенные спецификацией ECMAScript. Например, String, Math, RegExp, Object, Function и другие основные объекты, определенные спецификацией ECMAScript.
+    `Хост-объекты` - это объекты, предоставляемые браузером или средой выполнения (Node). Например, в качестве хост-объектов рассматриваются окна, XmlHttpRequest, узлы DOM и т.д.
+    `Объекты пользователя` - это объекты, определенные в коде javascript. Например, объекты User, созданные для получения информации о профиле.
+
+    **[⬆ Back to Top](#table-of-contents)**
+
+92. ### Какие инструменты или методы используются для отладки JavaScript-кода
+
+    Для отладки javascript можно использовать следующие инструменты или техники
 
     1. Chrome Devtools
-    2. debugger statement
-    3. Good old console.log statement
+    2. оператор отладчика
+    3. Старый добрый оператор console.log
 
     **[⬆ Back to Top](#table-of-contents)**
 
-93. ### What are the pros and cons of promises over callbacks
+93. ### В чем заключаются плюсы и минусы обещаний по сравнению с обратными звонками
 
-    Below are the list of pros and cons of promises over callbacks,
+    Ниже приведен список плюсов и минусов обещаний по сравнению с обратными вызовами,
 
-    **Pros:**
+    **Плюсы:**
 
-    1. It avoids callback hell which is unreadable
-    2. Easy to write sequential asynchronous code with .then()
-    3. Easy to write parallel asynchronous code with Promise.all()
-    4. Solves some of the common problems of callbacks(call the callback too late, too early, many times and swallow errors/exceptions)
+    1. Это позволяет избежать ада обратных вызовов, который не поддается прочтению
+    2. Легко писать последовательный асинхронный код с помощью .then()
+    3. Легко писать параллельный асинхронный код с помощью Promise.all()
+    4. Решает некоторые общие проблемы обратных вызовов (вызов обратного вызова слишком поздно, слишком рано, много раз и проглатывание ошибок/исключений).
 
-    **Cons:**
+    **Минусы:**
 
-    1. It makes little complex code
-    2. You need to load a polyfill if ES6 is not supported
+    1. Получается мало сложного кода
+    2. Необходимо загрузить полифилл, если ES6 не поддерживается
 
     **[⬆ Back to Top](#table-of-contents)**
 
-94. ### What is the difference between an attribute and a property
+94. ### В чем разница между атрибутом и свойством
 
-    Attributes are defined on the HTML markup whereas properties are defined on the DOM. For example, the below HTML element has 2 attributes type and value,
+    Атрибуты определяются в HTML-разметке, в то время как свойства - в DOM. Например, приведенный ниже HTML-элемент имеет 2 атрибута type и value,
 
-    ```javascript
+    ``javascript
     <input type="text" value="Name:">
     ```
 
-    You can retrieve the attribute value as below,
+    Получить значение атрибута можно следующим образом,
 
-    ```javascript
+    ``javascript
     const input = document.querySelector("input");
-    console.log(input.getAttribute("value")); // Good morning
-    console.log(input.value); // Good morning
+    console.log(input.getAttribute("value")); // Доброе утро
+    console.log(input.value); // Доброе утро
     ```
 
-    And after you change the value of the text field to "Good evening", it becomes like
+    А после того, как вы измените значение текстового поля на "Добрый вечер", оно приобретет вид
 
-    ```javascript
-    console.log(input.getAttribute("value")); // Good evening
-    console.log(input.value); // Good evening
+    ``javascript
+    console.log(input.getAttribute("value")); // Добрый вечер
+    console.log(input.value); // Добрый вечер
     ```
 
     **[⬆ Back to Top](#table-of-contents)**
 
-95. ### What is same-origin policy
+95. ### Что такое политика same-origin
 
-    The same-origin policy is a policy that prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. If you enable this policy then it prevents a malicious script on one page from obtaining access to sensitive data on another web page using Document Object Model(DOM).
+    Политика same-origin - это политика, которая не позволяет JavaScript выполнять запросы через доменные границы. Оригинал определяется как комбинация схемы URI, имени хоста и номера порта. Если включить эту политику, то она не позволит вредоносному скрипту на одной странице получить доступ к конфиденциальным данным на другой веб-странице с помощью Document Object Model (DOM).
 
     **[⬆ Back to Top](#table-of-contents)**
 
-96. ### What is the purpose of void 0
+96. ### Каково назначение пустоты 0
 
-    Void(0) is used to prevent the page from refreshing. This will be helpful to eliminate the unwanted side-effect, because it will return the undefined primitive value. It is commonly used for HTML documents that use href="JavaScript:Void(0);" within an `<a>` element. i.e, when you click a link, the browser loads a new page or refreshes the same page. But this behavior will be prevented using this expression.
-    For example, the below link notify the message without reloading the page
+    Void(0) используется для предотвращения обновления страницы. Это поможет устранить нежелательный побочный эффект, поскольку вернет неопределенное значение примитива. Он обычно используется для HTML-документов, в которых внутри элемента `<a>` используется href="JavaScript:Void(0);". Т.е. при нажатии на ссылку браузер загружает новую страницу или обновляет прежнюю. Но такое поведение будет предотвращено с помощью данного выражения.
+    Например, приведенная ниже ссылка уведомляет о сообщении без перезагрузки страницы
 
     ```javascript
     <a href="JavaScript:void(0);" onclick="alert('Well done!')">
@@ -2050,33 +2050,33 @@
 
     **[⬆ Back to Top](#table-of-contents)**
 
-97. ### Is JavaScript a compiled or interpreted language
+97. ### Является ли JavaScript компилируемым или интерпретируемым языком
 
-    JavaScript is an interpreted language, not a compiled language. An interpreter in the browser reads over the JavaScript code, interprets each line, and runs it. Nowadays modern browsers use a technology known as Just-In-Time (JIT) compilation, which compiles JavaScript to executable bytecode just as it is about to run.
-
-    **[⬆ Back to Top](#table-of-contents)**
-
-98. ### Is JavaScript a case-sensitive language
-
-    Yes, JavaScript is a case sensitive language. The language keywords, variables, function & object names, and any other identifiers must always be typed with a consistent capitalization of letters.
+    JavaScript - это интерпретируемый, а не компилируемый язык. Интерпретатор в браузере читает код JavaScript, интерпретирует каждую строку и запускает его на выполнение. В настоящее время в современных браузерах используется технология Just-In-Time (JIT) компиляции, которая компилирует JavaScript в исполняемый байткод непосредственно в момент его запуска.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-99. ### Is there any relation between Java and JavaScript
+98. ### Является ли JavaScript языком, чувствительным к регистру
 
-    No, they are entirely two different programming languages and have nothing to do with each other. But both of them are Object Oriented Programming languages and like many other languages, they follow similar syntax for basic features(if, else, for, switch, break, continue etc).
+    Да, JavaScript является языком, чувствительным к регистру. Ключевые слова языка, переменные, имена функций и объектов, а также любые другие идентификаторы должны всегда набираться с последовательным использованием заглавных букв.
 
     **[⬆ Back to Top](#table-of-contents)**
 
-100. ### What are events
+99. ### Существует ли какая-либо связь между Java и JavaScript
 
-     Events are "things" that happen to HTML elements. When JavaScript is used in HTML pages, JavaScript can `react` on these events. Some of the examples of HTML events are,
+    Нет, это совершенно разные языки программирования, не имеющие ничего общего друг с другом. Но оба они являются объектно-ориентированными языками программирования и, как и многие другие языки, используют схожий синтаксис для основных функций (if, else, for, switch, break, continue и т.д.).
 
-     1. Web page has finished loading
-     2. Input field was changed
-     3. Button was clicked
+    **[⬆ Back to Top](#table-of-contents)**
 
-     Let's describe the behavior of click event for button element,
+100. ### Что такое события
+
+     События - это "вещи", которые происходят с элементами HTML. Когда JavaScript используется в HTML-страницах, JavaScript может `реагировать` на эти события. Примерами событий HTML являются,
+
+     1. Веб-страница закончила загрузку
+     2. Поле ввода было изменено
+     3. Была нажата кнопка
+
+     Опишем поведение события click для элемента button,
 
      ```javascript
      <!doctype html>
